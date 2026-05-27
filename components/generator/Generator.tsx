@@ -71,7 +71,7 @@ export function Generator() {
   }
 
   return (
-    <section className="grid gap-8 lg:grid-cols-12 lg:items-start">
+    <section className="flex flex-col gap-8">
       <div className="lg:col-span-5 motion-safe:animate-fade-in-up [animation-delay:180ms]">
         <h1 className="app-heading text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
           Generate premium UI components from a single prompt.
@@ -147,7 +147,8 @@ export function Generator() {
             </div>
           </div>
 
-          <div className="grid gap-4 p-6 lg:grid-cols-2">
+          <div className="flex flex-col gap-4 p-6">
+     
             <div className="app-panel rounded-2xl ring-1 transition duration-300">
               {code ? (
                 <div className="h-[420px] overflow-hidden rounded-2xl motion-safe:animate-scale-in">
