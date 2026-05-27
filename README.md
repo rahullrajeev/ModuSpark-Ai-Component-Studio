@@ -3,6 +3,9 @@ This is an **AI Component Generator** built with Next.js App Router, Tailwind CS
 # ModuSpark AI Component Studio
 
 AI-powered component generator built with Next.js, Tailwind CSS, and Gemini AI.
+## 
+check it on 
+https://moduspark-ai-component-studio.vercel.app/
 
 ## Features
 - Generate UI components with AI
@@ -25,7 +28,5 @@ Built by Rahul Rajeev
 - Edit the returned code in the **Monaco editor**
 - See it rendered in the **sandboxed iframe preview**
 
-## 
-check it on 
-https://moduspark-ai-component-studio.vercel.app/
+
 
