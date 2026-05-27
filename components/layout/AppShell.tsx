@@ -34,10 +34,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      <main className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col gap-10 px-6 pb-16 pt-10 motion-safe:animate-fade-in-up [animation-delay:120ms]"">
+      <main className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col gap-10 px-6 pb-16 pt-10 motion-safe:animate-fade-in-up [animation-delay:120ms]" >
         {children}
 
-        <footer className="app-border flex flex-col items-start justify-between gap-3 border-t pt-8 text-xs motion-safe:animate-fade-in [animation-delay:400ms] sm:flex-row sm:items-center">
+        <footer className="app-border flex flex-col items-start justify-between gap-3 border-t pt-8 text-xs motion-safe:animate-fade-in [animation-delay:400ms] sm:flex-row sm:items-center" >
           <div className="app-subtle">
             Built for modern SaaS UI: dark, glassy, minimal, responsive.
           </div>
