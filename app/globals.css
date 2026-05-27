@@ -1,0 +1,441 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --animate-fade-in-up: fade-in-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.5s ease-out both;
+  --animate-scale-in: scale-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-float-slow: float-slow 14s ease-in-out infinite;
+  --animate-float-slower: float-slow 20s ease-in-out infinite reverse;
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 2.5s ease-in-out infinite;
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(12px, -18px) scale(1.03);
+    }
+  }
+
+  @keyframes shimmer {
+    0%,
+    100% {
+      opacity: 0.85;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+      box-shadow: 0 0 24px 2px rgba(99, 102, 241, 0.15);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Theme tokens ── */
+[data-theme="dark"] {
+  --app-bg: #000000;
+  --app-fg: #ffffff;
+  --app-fg-muted: rgb(255 255 255 / 0.65);
+  --app-fg-subtle: rgb(255 255 255 / 0.45);
+  --app-fg-faint: rgb(255 255 255 / 0.35);
+  --app-fg-label: rgb(255 255 255 / 0.7);
+  --app-card-bg: rgb(255 255 255 / 0.05);
+  --app-card-hover: rgb(255 255 255 / 0.07);
+  --app-ring: rgb(255 255 255 / 0.1);
+  --app-ring-hover: rgb(255 255 255 / 0.2);
+  --app-border: rgb(255 255 255 / 0.1);
+  --app-input-bg: rgb(0 0 0 / 0.3);
+  --app-input-bg-focus: rgb(0 0 0 / 0.4);
+  --app-panel-bg: rgb(0 0 0 / 0.3);
+  --app-btn-bg: #ffffff;
+  --app-btn-fg: #000000;
+  --app-btn-secondary-bg: rgb(255 255 255 / 0.1);
+  --app-btn-secondary-fg: rgb(255 255 255 / 0.8);
+  --app-logo-from: rgb(255 255 255 / 0.15);
+  --app-logo-to: rgb(255 255 255 / 0.05);
+  --app-logo-ring: rgb(255 255 255 / 0.15);
+  --app-logo-accent: rgb(255 255 255 / 0.55);
+  --app-blob-1: rgba(99, 102, 241, 0.35);
+  --app-blob-2: rgba(16, 185, 129, 0.2);
+  --app-blob-3: rgba(236, 72, 153, 0.18);
+  --app-focus-ring: rgb(99 102 241 / 0.5);
+  --app-card-shadow: 0 8px 40px -12px rgba(99, 102, 241, 0.25);
+  --app-theme-picker-bg: rgb(255 255 255 / 0.05);
+  --app-theme-picker-ring: rgb(255 255 255 / 0.1);
+  --app-theme-pill: rgb(255 255 255 / 0.55);
+  --app-theme-pill-hover: rgb(255 255 255 / 0.1);
+  --app-theme-pill-active-bg: rgb(255 255 255 / 0.15);
+  --app-theme-pill-active-fg: #ffffff;
+  --app-backdrop: blur(0px);
+}
+
+[data-theme="light"] {
+  --app-bg: #f8fafc;
+  --app-fg: #0f172a;
+  --app-fg-muted: rgb(15 23 42 / 0.65);
+  --app-fg-subtle: rgb(15 23 42 / 0.45);
+  --app-fg-faint: rgb(15 23 42 / 0.35);
+  --app-fg-label: rgb(15 23 42 / 0.7);
+  --app-card-bg: #ffffff;
+  --app-card-hover: #ffffff;
+  --app-ring: rgb(15 23 42 / 0.08);
+  --app-ring-hover: rgb(15 23 42 / 0.14);
+  --app-border: rgb(15 23 42 / 0.08);
+  --app-input-bg: rgb(15 23 42 / 0.03);
+  --app-input-bg-focus: rgb(15 23 42 / 0.05);
+  --app-panel-bg: rgb(15 23 42 / 0.03);
+  --app-btn-bg: #0f172a;
+  --app-btn-fg: #ffffff;
+  --app-btn-secondary-bg: rgb(15 23 42 / 0.06);
+  --app-btn-secondary-fg: rgb(15 23 42 / 0.75);
+  --app-logo-from: rgb(15 23 42 / 0.08);
+  --app-logo-to: rgb(15 23 42 / 0.03);
+  --app-logo-ring: rgb(15 23 42 / 0.1);
+  --app-logo-accent: rgb(15 23 42 / 0.45);
+  --app-blob-1: rgba(99, 102, 241, 0.12);
+  --app-blob-2: rgba(14, 165, 233, 0.1);
+  --app-blob-3: rgba(244, 114, 182, 0.08);
+  --app-focus-ring: rgb(99 102 241 / 0.35);
+  --app-card-shadow: 0 8px 32px -12px rgba(15, 23, 42, 0.12);
+  --app-theme-picker-bg: rgb(15 23 42 / 0.04);
+  --app-theme-picker-ring: rgb(15 23 42 / 0.08);
+  --app-theme-pill: rgb(15 23 42 / 0.55);
+  --app-theme-pill-hover: rgb(15 23 42 / 0.06);
+  --app-theme-pill-active-bg: #0f172a;
+  --app-theme-pill-active-fg: #ffffff;
+  --app-backdrop: blur(0px);
+}
+
+[data-theme="futuristic"] {
+  --app-bg: #030712;
+  --app-fg: #e0f2fe;
+  --app-fg-muted: rgb(224 242 254 / 0.7);
+  --app-fg-subtle: rgb(224 242 254 / 0.45);
+  --app-fg-faint: rgb(224 242 254 / 0.35);
+  --app-fg-label: rgb(103 232 249 / 0.85);
+  --app-card-bg: rgb(6 182 212 / 0.08);
+  --app-card-hover: rgb(6 182 212 / 0.12);
+  --app-ring: rgb(34 211 238 / 0.25);
+  --app-ring-hover: rgb(34 211 238 / 0.45);
+  --app-border: rgb(34 211 238 / 0.2);
+  --app-input-bg: rgb(2 6 23 / 0.6);
+  --app-input-bg-focus: rgb(2 6 23 / 0.75);
+  --app-panel-bg: rgb(2 6 23 / 0.55);
+  --app-btn-bg: linear-gradient(135deg, #22d3ee, #6366f1);
+  --app-btn-fg: #030712;
+  --app-btn-secondary-bg: rgb(34 211 238 / 0.12);
+  --app-btn-secondary-fg: rgb(224 242 254 / 0.9);
+  --app-logo-from: rgb(34 211 238 / 0.25);
+  --app-logo-to: rgb(99 102 241 / 0.15);
+  --app-logo-ring: rgb(34 211 238 / 0.35);
+  --app-logo-accent: rgb(34 211 238 / 0.75);
+  --app-blob-1: rgba(34, 211, 238, 0.35);
+  --app-blob-2: rgba(99, 102, 241, 0.3);
+  --app-blob-3: rgba(168, 85, 247, 0.22);
+  --app-focus-ring: rgb(34 211 238 / 0.55);
+  --app-card-shadow: 0 0 40px -8px rgba(34, 211, 238, 0.35);
+  --app-theme-picker-bg: rgb(34 211 238 / 0.06);
+  --app-theme-picker-ring: rgb(34 211 238 / 0.2);
+  --app-theme-pill: rgb(224 242 254 / 0.55);
+  --app-theme-pill-hover: rgb(34 211 238 / 0.12);
+  --app-theme-pill-active-bg: rgb(34 211 238 / 0.25);
+  --app-theme-pill-active-fg: #e0f2fe;
+  --app-backdrop: blur(0px);
+}
+
+[data-theme="minimal"] {
+  --app-bg: #fafafa;
+  --app-fg: #171717;
+  --app-fg-muted: rgb(23 23 23 / 0.6);
+  --app-fg-subtle: rgb(23 23 23 / 0.4);
+  --app-fg-faint: rgb(23 23 23 / 0.3);
+  --app-fg-label: rgb(23 23 23 / 0.65);
+  --app-card-bg: #ffffff;
+  --app-card-hover: #ffffff;
+  --app-ring: rgb(23 23 23 / 0.06);
+  --app-ring-hover: rgb(23 23 23 / 0.1);
+  --app-border: rgb(23 23 23 / 0.06);
+  --app-input-bg: #ffffff;
+  --app-input-bg-focus: #ffffff;
+  --app-panel-bg: #ffffff;
+  --app-btn-bg: #171717;
+  --app-btn-fg: #fafafa;
+  --app-btn-secondary-bg: rgb(23 23 23 / 0.04);
+  --app-btn-secondary-fg: rgb(23 23 23 / 0.7);
+  --app-logo-from: rgb(23 23 23 / 0.06);
+  --app-logo-to: rgb(23 23 23 / 0.02);
+  --app-logo-ring: rgb(23 23 23 / 0.08);
+  --app-logo-accent: rgb(23 23 23 / 0.4);
+  --app-blob-1: rgba(0, 0, 0, 0.02);
+  --app-blob-2: rgba(0, 0, 0, 0.015);
+  --app-blob-3: rgba(0, 0, 0, 0.01);
+  --app-focus-ring: rgb(23 23 23 / 0.2);
+  --app-card-shadow: none;
+  --app-theme-picker-bg: rgb(23 23 23 / 0.03);
+  --app-theme-picker-ring: rgb(23 23 23 / 0.06);
+  --app-theme-pill: rgb(23 23 23 / 0.5);
+  --app-theme-pill-hover: rgb(23 23 23 / 0.04);
+  --app-theme-pill-active-bg: #171717;
+  --app-theme-pill-active-fg: #fafafa;
+  --app-backdrop: blur(0px);
+}
+
+[data-theme="glassmorphism"] {
+  --app-bg: #0b1220;
+  --app-fg: #f8fafc;
+  --app-fg-muted: rgb(248 250 252 / 0.7);
+  --app-fg-subtle: rgb(248 250 252 / 0.45);
+  --app-fg-faint: rgb(248 250 252 / 0.35);
+  --app-fg-label: rgb(248 250 252 / 0.75);
+  --app-card-bg: rgb(255 255 255 / 0.08);
+  --app-card-hover: rgb(255 255 255 / 0.12);
+  --app-ring: rgb(255 255 255 / 0.18);
+  --app-ring-hover: rgb(255 255 255 / 0.28);
+  --app-border: rgb(255 255 255 / 0.12);
+  --app-input-bg: rgb(255 255 255 / 0.06);
+  --app-input-bg-focus: rgb(255 255 255 / 0.1);
+  --app-panel-bg: rgb(255 255 255 / 0.05);
+  --app-btn-bg: rgb(255 255 255 / 0.92);
+  --app-btn-fg: #0b1220;
+  --app-btn-secondary-bg: rgb(255 255 255 / 0.12);
+  --app-btn-secondary-fg: rgb(248 250 252 / 0.9);
+  --app-logo-from: rgb(255 255 255 / 0.22);
+  --app-logo-to: rgb(255 255 255 / 0.06);
+  --app-logo-ring: rgb(255 255 255 / 0.22);
+  --app-logo-accent: rgb(255 255 255 / 0.55);
+  --app-blob-1: rgba(147, 197, 253, 0.28);
+  --app-blob-2: rgba(196, 181, 253, 0.22);
+  --app-blob-3: rgba(251, 207, 232, 0.18);
+  --app-focus-ring: rgb(147 197 253 / 0.45);
+  --app-card-shadow: 0 8px 32px -8px rgba(255, 255, 255, 0.12);
+  --app-theme-picker-bg: rgb(255 255 255 / 0.06);
+  --app-theme-picker-ring: rgb(255 255 255 / 0.14);
+  --app-theme-pill: rgb(248 250 252 / 0.55);
+  --app-theme-pill-hover: rgb(255 255 255 / 0.1);
+  --app-theme-pill-active-bg: rgb(255 255 255 / 0.2);
+  --app-theme-pill-active-fg: #ffffff;
+  --app-backdrop: blur(24px);
+}
+
+/* ── Semantic app classes ── */
+.app-shell {
+  background: var(--app-bg);
+  color: var(--app-fg);
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease;
+}
+
+.app-heading {
+  color: var(--app-fg);
+}
+
+.app-muted {
+  color: var(--app-fg-muted);
+}
+
+.app-subtle {
+  color: var(--app-fg-subtle);
+}
+
+.app-faint {
+  color: var(--app-fg-faint);
+}
+
+.app-label {
+  color: var(--app-fg-label);
+}
+
+.app-border {
+  border-color: var(--app-border);
+}
+
+.app-card {
+  background: var(--app-card-bg);
+  box-shadow: var(--app-card-shadow);
+  backdrop-filter: var(--app-backdrop);
+  -webkit-backdrop-filter: var(--app-backdrop);
+  --tw-ring-color: var(--app-ring);
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.app-card:hover {
+  background: var(--app-card-hover);
+  --tw-ring-color: var(--app-ring-hover);
+}
+
+.app-input {
+  background: var(--app-input-bg);
+  color: var(--app-fg);
+  --tw-ring-color: var(--app-ring);
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.app-input::placeholder {
+  color: var(--app-fg-faint);
+}
+
+.app-input:focus {
+  background: var(--app-input-bg-focus);
+  --tw-ring-color: var(--app-focus-ring);
+}
+
+.app-panel {
+  background: var(--app-panel-bg);
+  --tw-ring-color: var(--app-ring);
+  transition: background-color 0.35s ease;
+}
+
+.app-btn-primary {
+  background: var(--app-btn-bg);
+  color: var(--app-btn-fg);
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.app-btn-secondary {
+  background: var(--app-btn-secondary-bg);
+  color: var(--app-btn-secondary-fg);
+  --tw-ring-color: var(--app-ring);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.app-logo {
+  background: linear-gradient(to bottom right, var(--app-logo-from), var(--app-logo-to));
+  --tw-ring-color: var(--app-logo-ring);
+}
+
+.app-logo-text {
+  color: var(--app-fg);
+}
+
+.app-logo-accent {
+  color: var(--app-logo-accent);
+}
+
+.app-blob {
+  background: radial-gradient(circle at center, var(--blob-color), transparent 60%);
+  transition: opacity 0.45s ease;
+}
+
+.app-blob-1 {
+  --blob-color: var(--app-blob-1);
+}
+
+.app-blob-2 {
+  --blob-color: var(--app-blob-2);
+}
+
+.app-blob-3 {
+  --blob-color: var(--app-blob-3);
+}
+
+.app-theme-picker {
+  background: var(--app-theme-picker-bg);
+  --tw-ring-color: var(--app-theme-picker-ring);
+}
+
+.app-theme-pill {
+  color: var(--app-theme-pill);
+}
+
+.app-theme-pill:hover {
+  background: var(--app-theme-pill-hover);
+}
+
+.app-theme-pill-active {
+  background: var(--app-theme-pill-active-bg);
+  color: var(--app-theme-pill-active-fg);
+}
+
+[data-theme="minimal"] .app-blob {
+  opacity: 0.35;
+}
+
+[data-theme="glassmorphism"] .app-card,
+[data-theme="glassmorphism"] .app-panel,
+[data-theme="glassmorphism"] .app-theme-picker {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
