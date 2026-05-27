@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     let lastError: unknown = null;
     for (const modelId of MODEL_CANDIDATES) {
       try {
-        const model = genAI.getGenerativeModel({ model: modelId });
+        const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
         const result = await model.generateContent(prompt);
         const text = result.response.text();
         return Response.json({ code: text, model: modelId });

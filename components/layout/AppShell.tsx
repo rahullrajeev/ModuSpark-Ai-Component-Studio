@@ -11,7 +11,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <div className="app-blob app-blob-3 absolute -bottom-40 left-[-10%] h-[520px] w-[520px] rounded-full blur-2xl motion-safe:animate-float-slow [animation-delay:2s]" />
       </div>
 
-      <header className="relative z-10 mx-auto w-full max-w-6xl px-6 pt-10 motion-safe:animate-fade-in-up">
+      <header className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-10 motion-safe:animate-fade-in-up">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="group flex items-center gap-3">
             <div
@@ -34,7 +34,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col gap-10 px-6 pb-16 pt-10 motion-safe:animate-fade-in-up [animation-delay:120ms]">
+      <main className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col gap-10 px-6 pb-16 pt-10 motion-safe:animate-fade-in-up [animation-delay:120ms]"">
         {children}
 
         <footer className="app-border flex flex-col items-start justify-between gap-3 border-t pt-8 text-xs motion-safe:animate-fade-in [animation-delay:400ms] sm:flex-row sm:items-center">
