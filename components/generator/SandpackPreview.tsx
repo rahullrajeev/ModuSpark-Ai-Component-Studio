@@ -69,7 +69,8 @@ root.render(<App />);
           <SandpackCodeEditor />
         </div>
         <div style={{ width: "100%" }}>
-          <SandpackPreview style={{ height: 420, width: "100%" }} />
+          <SandpackPreview style={{ height: 650, width: "100%" }} />
+     
         </div>
       </SandpackLayout>
     </SandpackProvider>
