@@ -151,7 +151,9 @@ export function Generator() {
      
             <div className="app-panel rounded-2xl ring-1 transition duration-300">
               {code ? (
-                <div className="min-h-[200px] max-h-[650px] overflow-auto rounded-2xl motion-safe:animate-scale-in">
+                <div className="h-[420px] overflow-hidden rounded-2xl motion-safe:animate-scale-in">
+           
+           
            
            
                   <CodeEditor value={code} onChange={setCode} />

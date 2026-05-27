@@ -11,7 +11,8 @@ export default function MonacoEditor({
 }) {
   return (
     <Editor
-      height="100%"
+      height="420px"
+ 
       defaultLanguage="typescript"
       theme="vs-dark"
       value={value}
